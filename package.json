@@ -1,0 +1,89 @@
+{
+  "name": "ark95",
+  "displayName": "Ark95 - Architecture Diagrams",
+  "description": "Generate and version architecture diagrams (.ark95) from your codebase using AI",
+  "version": "0.2.0",
+  "publisher": "ark95",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ark95/ark95-vscode"
+  },
+  "homepage": "https://ark95.io",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "activationEvents": [
+    "onUri"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ark95",
+          "title": "Ark95",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "ark95": [
+        {
+          "type": "webview",
+          "id": "ark95.sidebar",
+          "name": "Ark95"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "id": "ark95",
+        "aliases": ["Ark95 Diagram"],
+        "extensions": [".ark95"],
+        "icon": {
+          "light": "media/ark95-file-icon-light.png",
+          "dark": "media/ark95-file-icon-dark.png"
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "ark95.login",
+        "title": "Ark95: Login"
+      },
+      {
+        "command": "ark95.logout",
+        "title": "Ark95: Logout"
+      },
+      {
+        "command": "ark95.generateDiagram",
+        "title": "Ark95: Generate Architecture Diagram"
+      },
+      {
+        "command": "ark95.openDiagram",
+        "title": "Ark95: Open .ark95 Diagram on Web"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --minify",
+    "watch": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --watch",
+    "dev": "npm run watch"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "ignore": "^5.3.0"
+  }
+}
