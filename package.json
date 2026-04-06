@@ -7,7 +7,7 @@
   "icon": "media/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ark95/ark95-vscode"
+    "url": "https://github.com/ARK95IO/ark95-vscode"
   },
   "homepage": "https://ark95.io",
   "license": "MIT",
